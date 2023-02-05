@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <h2 id="heading1">This is a heading</h2>
+
+  <p class="paragraph"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ullam vel, vero repudiandae
+      magni veniam dolore, laboriosam sint nisi doloremque excepturi cum odit nobis? Doloremque exercitationem nobis
+      deserunt. Accusamus, illum.</span><span>Repellendus dignissimos exercitationem vero est dolore itaque nihil
+      aspernatur vel, cupiditate quos mollitia omnis. Repudiandae labore minima deleniti cupiditate in sapiente suscipit
+      eveniet ipsam voluptates numquam, doloribus blanditiis voluptatem. Quo?</span></p>
+  <p class="paragraph"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate blanditiis doloribus
+      magnam. Amet repellendus eum sed, tempore aperiam suscipit, ullam nihil, explicabo iusto ipsa deleniti pariatur
+      laboriosam esse in quisquam?</span><span>Error placeat quibusdam maiores necessitatibus a, qui repudiandae, rem
+      voluptate iure eum rerum expedita minima commodi natus sunt autem amet fugiat impedit. Facere deleniti minus
+      blanditiis illo impedit suscipit quia?</span></p>
+  <p class="paragraph"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, cumque ea illum reiciendis
+      accusantium, rem reprehenderit iste ad expedita enim amet earum explicabo inventore soluta commodi possimus.
+      Adipisci, fugiat? Hic!</span><span>Debitis facilis, doloribus qui similique numquam ad eos dicta a inventore ipsa
+      accusantium molestiae id vitae delectus voluptates vel eligendi impedit nemo doloremque quos fuga expedita
+      mollitia? Reiciendis, optio temporibus!</span></p>
+
+  <button>Submit</button>
+
+  <div id="div1" class="bg-primary" style="margin-top: 20px; width: 100px; height: 100px;">
+  <h6>sefa</h6>
+  </div>
+
+  <h6 id="fff"></h6>
+
+
+  <script>
+
+    var h2 = document.getElementById("heading1");
+    console.log(h2);
+    h2.className = "text-danger";
+    h2.onclick = function () {
+      this.className = "text-primary";
+    }
+
+    var paragraphs = document.getElementsByClassName("paragraph");
+    console.log(paragraphs);
+
+    // there is some func to can change class name that can observed in Console which is in the DevOps
+    paragraphs[0].classList.add("lead");
+    paragraphs[1].classList.remove("paragraph");
+
+    var h6 = document.getElementById("h6");
+    // h6.innerHTML="<p>Inner paragraph</p>";
+    // h6.innerText="<p>Inner paragraph</p>";
+
+    var buttons = document.getElementsByTagName("button")
+    var button = buttons[0];
+    button.innerHTML = "Bootstrap Button";
+    button.innerText = "A Bootstrap Button";
+    button.className = "btn btn-outline-primary";
+
+    button.onclick = function () {
+      document.getElementById("div1").classList.toggle("bg-primary");
+    }
+
+
+    var div1 = document.getElementById("div1");
+    var h6 = document.createElement("h6");
+    h6.innerHTML = "<h6>A new heading</h6>";
+    div1.appendChild(h6);
+    h6.parentElement.remove();
+
+
+    console.log(document.querySelector("#div1"));
+    // document.querySelectorAll()
+
+    // the most famous selectors in js
+
+    // just single one element
+    // document.getElementById
+
+    // collection of elements
+    // document.getElementsByClassName
+    // document.getElementsByTagName
+
+
+
+    // class Employee {
+    //   constructor(name, surname, email) {
+    //     this.name = name;
+    //     this.surname = surname;
+    //     this.email = email;
+    //   }
+    // }
+
+    // var emp1 = new Employee("Lisa", "Grey", "ddd@sss");
+    // var emp2 = new Employee("Ayso", "Tas", "ayso@tas");
+
+    // var employees = [];
+    // employees.push(emp1);
+    // employees.push(emp2);
+
+    // employees.forEach(emp => {
+    //   console.log(emp.name + " " + emp.surname);
+    // });
+
+    // for (const emp of employees) {
+    //   console.log(emp.name + " " + emp.surname);
+    // }
+
+    // function sayHello(name) {
+    //   alert("Hello" + name);
+    // }
+
+    // sayHello("My Name");
+
+    // var person = {
+    //   id: 1,
+    //   name: "Mark",
+    //   surname: "Hall",
+    //   city: "Istanbul"
+    // }
+
+  </script>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

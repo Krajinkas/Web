@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="p-5 w-50 border">
+
+            <div class="form-group row">
+                <label class="col-3 col-form-label" for="name">Name</label>
+                <div class="col-9">
+                    <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-3 col-form-label" for="surname">Surname</label>
+                <div class="col-9">
+                    <input type="text" class="form-control" id="surname" aria-describedby="emailHelp">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-3 col-form-label" for="department"></label>
+                <div class="col-9">
+                    <select class="form-control" id="department">
+                        <option selected hidden>Select Department</option>
+                    </select>
+                </div>
+            </div>
+            <button id="submit" class="btn btn-outline-primary float-right">Submit</button>
+        </div>
+        <div class="w-50 border mt-2 p-3">
+            <h3 class="lead text-primary">The List</h3>
+            <ul id="theList" class="list-group list-group-flush"></ul>
+        </div>
+    </div>
+
+    <script>
+
+        var list = ["Bussines", "Computing", "Literature"]
+
+        list.forEach(dept => {
+            var option = document.createElement("option");
+            var select = document.getElementById("department");
+            option.text = dept;
+            select.appendChild(option);
+        });
+
+        class Person {
+            constructor(name, surname, department) {
+                this.name = name;
+                this.surname = surname;
+                this.department = department;
+            }
+        }
+        document.querySelector("#submit").onclick = function () {
+            var name = document.querySelector("#name").value;
+            var surname = document.querySelector("#surname").value;
+            var select = document.querySelector("#department");
+            var department = select.options[select.selectedIndex].text;
+
+            var person = new Person(name, surname, department);
+            var ulList = document.querySelector("#theList");
+            var li = document.createElement("li");
+            li.className = "list-group-item list-group-item-action";
+            var data = person.name + " " + person.surname + " " + person.department;
+            li.innerHTML = data;
+            ulList.appendChild(li);
+
+            li.onclick = function () {
+                var lis = document.querySelectorAll("li");
+                lis.forEach(listItem => {
+                    listItem.classList.remove("active")
+                });
+                // this.classList.toggle("active");
+                this.classList.add("active");
+            }
+
+            var span = document.createElement("span");
+            span.classList.add("close");
+            span.innerHTML = "&times";//kapatma işaretini html de bu şekilde oluşturuyoruz. &times
+            span.style.cursor = "pointer";
+            li.appendChild(span);
+
+            span.onclick = function () {
+                this.parentElement.remove();
+            }
+
+            document.querySelector("#name").value = "";
+            document.querySelector("#surname").value = "";
+            document.querySelector("#department").selectedIndex = 0;
+
+
+        }
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
